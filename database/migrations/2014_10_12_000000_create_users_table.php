@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            // $table->integer('total_points')->default(0);
             $table->timestamps();
         });
     }
