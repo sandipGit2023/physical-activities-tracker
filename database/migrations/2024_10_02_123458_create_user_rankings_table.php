@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user_rankings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            // $table->integer('total_points')->default(0);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->integer('rank');
+            $table->integer('total_points');
+            $table->enum('period', ['day', 'month', 'year']);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user_rankings');
     }
 };
