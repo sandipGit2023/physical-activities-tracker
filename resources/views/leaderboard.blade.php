@@ -22,7 +22,7 @@
                     <select name="period" class="form-control">
                         <option value="day" {{ request('period') == 'day' ? 'selected' : '' }}>Today</option>
                         <option value="month" {{ request('period') == 'month' ? 'selected' : '' }}>This Month</option>
-                        <option value="year" {{ request('period') == 'year' ? 'selected' : '' }}>This Year</option>
+                        <option value="year" {{ (request('period') == 'year' || !request('period')) ? 'selected' : '' }}>This Year</option>
                     </select>
                 </div>
                 <div class="col-auto">
